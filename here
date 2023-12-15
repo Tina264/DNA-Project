@@ -172,4 +172,4 @@ for i in list4:
 
 print("[Polypeptide Chain]")
 print()
-print(polypeptide_chain)
+print("Chain:", polypeptide_chain)
