@@ -1,0 +1,175 @@
+"""
+Tina
+"""
+
+import random
+
+list = []
+
+dict = {
+    0 : "A",
+    1 : "T",
+    2 : "C",
+    3 : "G"
+}
+
+for i in range(0, 12):
+    list.append(dict[random.randint(0, 3)])
+
+strand = ""
+
+count = 0
+
+for i in list:
+    strand += i
+    count += 1
+    if count == 3:
+        count = 0
+        strand += " "
+
+comp = {
+    "A" : "T",
+    "T" : "A",
+    "C" : "G",
+    "G" : "C"
+}
+
+list2 = []
+
+for i in list:
+    list2.append(comp[i])
+
+strand2 = ""
+
+count = 0
+
+for i in list2:
+    strand2 += i
+    count += 1
+    if count == 3:
+        count = 0
+        strand2 += " "
+
+print("[DNA Molecule]")
+print()
+print("Strand:", strand)
+print("Complementary Strand:", strand2)
+print()
+
+rnacomp = {
+    "A" : "U",
+    "T" : "A",
+    "C" : "G",
+    "G" : "C"
+}
+
+list3 = []
+rnastrand = ""
+
+for i in list2:
+    list3.append(rnacomp[i])
+
+count = 0
+
+for i in list3:
+    rnastrand += i
+    count += 1
+    if count == 3:
+        count = 0
+        rnastrand += " "
+
+print("[RNA strand of the Complementary]")
+print()
+print("Strand:", rnastrand)
+print()
+
+amino_acid = {
+    "UUU" : "Phe",
+    "UUC" : "Phe",
+    "UUA" : "Leu",
+    "UUG" : "Leu",
+    "UCU" : "Ser",
+    "UCC" : "Ser",
+    "UCA" : "Ser",
+    "UCG" : "Ser",
+    "UAU" : "Tyr",
+    "UAC" : "Tyr",
+    "UAA" : "Stop",
+    "UAG" : "Stop",
+    "UUU" : "Stop",
+    "UGU" : "Cys",
+    "UGC" : "Cys",
+    "UGA" : "Stop",
+    "UGG" : "Trp",
+    "CUU" : "Leu",
+    "CUC" : "Leu",
+    "CUA" : "Leu",
+    "CUG" : "Leu",
+    "CCU" : "Pro",
+    "CCC" : "Pro",
+    "CCA" : "Pro",
+    "CCG" : "Pro",
+    "CAU" : "His",
+    "CAC" : "His",
+    "CAA" : "Gln",
+    "CAG" : "Gln",
+    "CGU" : "Arg",
+    "CGC" : "Arg",
+    "CGA" : "Arg",
+    "CGG" : "Arg",
+    "AUU" : "Ile",
+    "AUC" : "Ile",
+    "AUA" : "Ile",
+    "AUG" : "Met/Start",
+    "ACU" : "Thr",
+    "ACC" : "Thr",
+    "ACA" : "Thr",
+    "ACG" : "Thr",
+    "AAU" : "Asn",
+    "AAC" : "Asn",
+    "AAA" : "Lys",
+    "AAG" : "Lys",
+    "AGU" : "Ser",
+    "AGC" : "Ser",
+    "AGA" : "Arg",
+    "AGG" : "Arg",
+    "GUU" : "Val",
+    "GUC" : "Val",
+    "GUA" : "Val",
+    "GUG" : "Val",
+    "GCU" : "Ala",
+    "GCC" : "Ala",
+    "GCA" : "Ala",
+    "GCG" : "Ala",
+    "GAU" : "Asp",
+    "GAC" : "Asp",
+    "GAA" : "Asp",
+    "GAG" : "Asp",
+    "GGU" : "Gly",
+    "GGC" : "Gly",
+    "GGA" : "Gly",
+    "GGG" : "Gly"
+}
+
+count = 0
+string = ""
+list4 = []
+
+for i in list3:
+    if count != 3:
+        string += i
+        count += 1
+    if count == 3:
+        list4.append(string)
+        count = 0
+        string = ""
+
+polypeptide_chain = ""
+
+for i in list4:
+    polypeptide_chain += amino_acid[i]
+    polypeptide_chain += " "
+
+print("[Polypeptide Chain]")
+print()
+print(polypeptide_chain)
